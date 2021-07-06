@@ -1,0 +1,38 @@
+.background{
+    position: fixed;
+    background-color: #f7f9fb;
+    height: 100%;
+    width: 100%;
+    z-index: -99;
+}
+html body{
+    height: 100%;
+}
+input{
+    margin-top: 40px;
+
+}
+.wrap{
+    position: relative;
+    left: 50%;
+    top: 200px;
+    margin-left: -200px;
+    width: 400px;
+    padding: 20px;
+    background-color:white;
+    border: rgba(0, 0, 0, 0.1);
+    border-radius: 2%;
+    border-width: 1px;
+    z-index: 1;
+    align-content: center;
+}
+ul{
+    padding-inline-start: 0px;
+}
+#submitBtn{
+    width: 120px;
+    margin: 0 auto;
+}
+li{
+    list-style-type: none;
+}

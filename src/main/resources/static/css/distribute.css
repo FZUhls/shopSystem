@@ -1,0 +1,130 @@
+div.container div.row div {
+    text-align:center;
+    margin:5px 0px;
+}
+div.container{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.input{
+    float: left;
+}
+div.mainBox{
+    padding: 30px 100px 30px 100px;
+    text-align: center;
+}
+.row button{
+    width: 120px; margin-top: 18px;
+}
+
+.tablebox table{
+    border: 0px;
+    text-align: center;
+    margin: 0 auto;
+}
+tr.head{
+    background-color: lightgray;
+}
+.tableView td {
+    border: 1px;
+    border-style: solid;
+    border-color: #afb4db;
+    text-align: center;
+}
+.selectDepartBackground{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+#searchTbody tr:hover{
+    background-color: #95e0f8;
+}
+.selectDepart{
+    float: left;
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+    margin-top: 20%;
+    background-color: white;
+    /* box-shadow:0 0 9px 3px #999; */
+    box-shadow:4px 4px 5px #999;
+    padding: 30px;
+}
+.addViewBackground{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.addView{
+    float: left;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    background-color: white;
+    /* box-shadow:0 0 9px 3px #999; */
+    box-shadow:4px 4px 5px #999;
+    padding: 30px;
+}
+.controllerbar button {
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    margin: auto;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 3px gray, 0 0 6px gray, 0 0 9px gray;
+}
+
+.controllerbar{
+    position: relative;
+    right: 0;
+    top: 0;
+    height: 30px;
+}
+
+.controllerbar button:hover {
+    filter: brightness(90%);
+}
+.controllerbar button:active {
+    box-shadow: none;
+}
+.titleDiv{
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+}
+.detailViewBackground{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.detailView{
+    float: left;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    background-color: white;
+    /* box-shadow:0 0 9px 3px #999; */
+    box-shadow:4px 4px 5px #999;
+    padding: 30px;
+}

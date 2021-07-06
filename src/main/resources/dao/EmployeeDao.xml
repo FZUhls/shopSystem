@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxy.shopsystem.dao.EmployeeDao">
+
+    <resultMap id="employeeMap" type="com.zxy.shopsystem.model.form.jsonModel.EmployeeJson">
+        <id column="eid" jdbcType="INTEGER" property="eid" />
+        <result column="name" jdbcType="CHAR" property="name" />
+        <result column="sex" jdbcType="CHAR" property="sex"/>
+        <result column="idcard_number" jdbcType="CHAR" property="idCard" />
+        <result column="birthday" jdbcType="CHAR" property="birthday" />
+        <result column="politics_status" jdbcType="CHAR" property="politics" />
+        <result column="education_status" jdbcType="CHAR" property="education" />
+        <result column="ismarried" jdbcType="CHAR" property="ismarried" />
+        <result column="join_time" jdbcType="CHAR" property="joinTime" />
+        <result column="salary" jdbcType="INTEGER" property="salary" />
+        <result column="department" jdbcType="INTEGER" property="department" />
+        <result column="worktype" jdbcType="INTEGER" property="workType" />
+        <result column="notes" jdbcType="VARCHAR" property="notes" />
+    </resultMap>
+
+    <select id="findAll" resultMap="employeeMap" >
+        select * from employee
+    </select>
+
+    <select id="findByCondition" resultMap="employeeMap">
+        select eid, employee.name, sex, idcard_number, birthday, politics_status, education_status, ismarried, join_time, salary, department.name as department, worktype.name as worktype, employee.notes
+        from employee,department,worktype
+        where employee.work_type_no = worktype.no and employee.department_no = department.no
+        <if test="eid!=null and eid!=0">
+            and eid = #{eid}
+        </if>
+        <if test="name!=null and name!=''">
+            and employee.name = #{name}
+        </if>
+        <if test="departmentNo!=null and departmentNo!=0">
+            and employee.department_no = #{departmentNo}
+        </if>
+        <if test="workTypeNo!=null and workTypeNo!=0">
+            and employee.work_type_no = #{workTypeNo}
+        </if>
+    </select>
+    <select id="findLarge" resultType="java.lang.Integer">
+        select eid from employee order by eid desc limit 1
+    </select>
+
+
+</mapper>

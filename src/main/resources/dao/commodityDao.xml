@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxy.shopsystem.dao.CommodityDao">
+    <resultMap id="commodityMap" type="com.zxy.shopsystem.model.form.jsonModel.CommodityJson">
+        <result column="no" jdbcType="INTEGER" property="no"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+<!--        <result column="tno" jdbcType="INTEGER" property="tno"/>-->
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="barcode" jdbcType="VARCHAR" property="barcode"/>
+<!--        <result column="cno" jdbcType="INTEGER" property="cno"/>-->
+        <result column="color" jdbcType="VARCHAR" property="color"/>
+<!--        <result column="sno" jdbcType="INTEGER" property="sno"/>-->
+        <result column="supplier" jdbcType="VARCHAR" property="supplier"/>
+        <result column="costprice" jdbcType="INTEGER" property="costPrice" />
+        <result column="sellprice" jdbcType="INTEGER" property="sellPrice" />
+<!--        <result column="mno" jdbcType="INTEGER" property="mno"/>-->
+        <result column="material" jdbcType="VARCHAR" property="material"/>
+    </resultMap>
+    <select id="findByCondition" resultMap="commodityMap">
+        select no, name, type, barcode, color, supplier, costprice, sellprice, material
+            from commodity_view where 1=1
+        <if test="barcode!=null and barcode!='' ">
+            and barcode = #{barcode}
+        </if>
+        <if test="name!=null and name!=''">
+            and name = #{name}
+        </if>
+        <if test="tno!=null and tno!='' and tno!=0 ">
+            and tno = #{tno}
+        </if>
+        <if test="sno!=null and sno!='' and sno!=0">
+            and sno = #{sno}
+        </if>
+        order by no asc
+    </select>
+    <select id="findLarge" resultType="java.lang.Integer">
+        select cno from commodity order by cno desc limit 1
+    </select>
+</mapper>

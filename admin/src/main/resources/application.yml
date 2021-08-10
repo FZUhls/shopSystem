@@ -1,0 +1,36 @@
+spring:
+  freemarker:
+    request-context-attribute: req  #req访问request
+    suffix: .ftl #后缀名
+    content-type: text/html
+    enabled: true
+    cache: false #缓存配置
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    charset: UTF-8 #编码格式
+    settings:
+      number_format: '0.##'   #数字格式化，无小数点
+  security:
+    user:
+      password: 12345
+  mvc:
+    static-path-pattern: classpath:/static/**
+mybatis:
+  mapper-locations:
+    - classpath:mapping/*.xml
+    - classpath:dao/*.xml
+  type-aliases-package: com.zxy.shopsystemdemo.model
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /monitor
+server:
+  port: 80
+logging:
+  level:
+  - com.zxy.shopsystemdemo.dao: debug
+  - com.zxy.shopsystemdemo.mapper: debug
+  file:
+    path: classpath:logback.xml
+

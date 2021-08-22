@@ -11,7 +11,7 @@ spring:
       number_format: '0.##'   #数字格式化，无小数点
   security:
     user:
-      password: 12345
+      password:
   mvc:
     static-path-pattern: classpath:/static/**
 mybatis:
@@ -26,7 +26,7 @@ management:
         include: '*'
       base-path: /monitor
 server:
-  port: 80
+  port: 8080
 logging:
   level:
   - com.zxy.shopsystemdemo.dao: debug

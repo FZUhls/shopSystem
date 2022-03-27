@@ -9,16 +9,15 @@ spring:
     charset: UTF-8 #编码格式
     settings:
       number_format: '0.##'   #数字格式化，无小数点
-  security:
-    user:
-      password:
   mvc:
     static-path-pattern: classpath:/static/**
+  profiles:
+    active: @profileActive@
 mybatis:
   mapper-locations:
-    - classpath:mapping/*.xml
-    - classpath:dao/*.xml
-  type-aliases-package: com.zxy.shopsystemdemo.model
+    - classpath*:/mapping/*.xml
+    - classpath*:/dao/*.xml
+  type-aliases-package: com.wrk.shopsystemdemo.model
 management:
   endpoints:
     web:

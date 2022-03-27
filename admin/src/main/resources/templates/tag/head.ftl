@@ -21,12 +21,12 @@
                 <li class="ylist">
                     <a href="/commodity">商品查询</a>
                 </li>
-                <li class="ylist">
+                <#--<li class="ylist">
                     <a href="#">供货商查询</a>
                 </li>
                 <li class="ylist">
                     <a href="#">商品属性</a>
-                </li>
+                </li>-->
             </ul>
         </li>
         <li class="xlist unfocus" >
@@ -59,7 +59,7 @@
             <a href="#">零售管理</a>
             <ul class="level2menu">
                 <li class="ylist"><a href="/shopchart">门店报表</a></li>
-                <li class="ylist last"><a href="#">门店基本信息</a></li>
+<#--                <li class="ylist last"><a href="#">门店基本信息</a></li>-->
             </ul>
         </li>
         <#--<li class="xlist unfocus">

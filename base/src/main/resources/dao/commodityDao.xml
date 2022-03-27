@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zxy.shopsystem.base.dao.CommodityDao">
-    <resultMap id="commodityMap" type="com.zxy.shopsystem.base.model.form.jsonModel.CommodityJson">
+<mapper namespace="com.wrk.shopsystem.base.dao.CommodityDao">
+    <resultMap id="commodityMap" type="com.wrk.shopsystem.base.model.form.jsonModel.CommodityJson">
         <result column="no" jdbcType="INTEGER" property="no"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <!--        <result column="tno" jdbcType="INTEGER" property="tno"/>-->
@@ -19,17 +19,17 @@
     <select id="findByCondition" resultMap="commodityMap">
         select no, name, type, barcode, color, supplier, costprice, sellprice, material
             from commodity_view where 1=1
-        <if test="barcode!=null and barcode!='' ">
-            and barcode = #{barcode}
+        <if test="arg0!=null and arg0!='' ">
+            and barcode = #{arg0}
         </if>
-        <if test="name!=null and name!=''">
-            and name = #{name}
+        <if test="arg1!=null and arg1!=''">
+            and name = #{arg1}
         </if>
-        <if test="tno!=null and tno!='' and tno!=0 ">
-            and tno = #{tno}
+        <if test="arg2!=null and arg2!='' and arg2!=0 ">
+            and tno = #{arg2}
         </if>
-        <if test="sno!=null and sno!='' and sno!=0">
-            and sno = #{sno}
+        <if test="arg3!=null and arg3!='' and arg3!=0">
+            and sno = #{arg3}
         </if>
         order by no asc
     </select>

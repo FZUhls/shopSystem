@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zxy.shopsystem.base.dao.ShopChartDao">
-    <resultMap id="BaseMap" type="com.zxy.shopsystem.base.model.form.jsonModel.ShopChart">
+<mapper namespace="com.wrk.shopsystem.base.dao.ShopChartDao">
+    <resultMap id="BaseMap" type="com.wrk.shopsystem.base.model.form.jsonModel.ShopChart">
         <result column="shop" jdbcType="VARCHAR" property="shop"/>
         <result column="operator" jdbcType="VARCHAR" property="operator"/>
         <result column="barcode" jdbcType="VARCHAR" property="barcode"/>
@@ -14,17 +14,17 @@
         SELECT shop, operator, barcode, commodity,count(barcode) as number,sum(sellprice) as totalprice, time FROM
         shop.shop_chart group by barcode,time,operator
         having 1=1
-        <if test="shopNo!=null and shopNo !=0">
-            and shop = (select name from department where no = #{shopNo})
+        <if test="arg0!=null and arg0 !=0">
+            and shop = (select name from department where no = #{arg0})
         </if>
-        <if test="barcode!=null and barcode!=''">
-            and barcode = #{barcode}
+        <if test="arg1!=null and arg1!=''">
+            and barcode = #{arg1}
         </if>
-        <if test="operatorNo!=null and operatorNo!=0">
-            and operator = (select name from employee where eid = #{operatorNo})
+        <if test="arg2!=null and arg2!=0">
+            and operator = (select name from employee where eid = #{arg2})
         </if>
-        <if test="date!=null">
-            and time = #{date}
+        <if test="arg3!=null">
+            and time = #{arg3}
         </if>
     </select>
 </mapper>

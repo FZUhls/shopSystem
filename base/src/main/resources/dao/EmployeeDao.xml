@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zxy.shopsystem.base.dao.EmployeeDao">
+<mapper namespace="com.wrk.shopsystem.base.dao.EmployeeDao">
 
-    <resultMap id="employeeMap" type="com.zxy.shopsystem.base.model.form.jsonModel.EmployeeJson">
+    <resultMap id="employeeMap" type="com.wrk.shopsystem.base.model.form.jsonModel.EmployeeJson">
         <id column="eid" jdbcType="INTEGER" property="eid"/>
         <result column="name" jdbcType="CHAR" property="name"/>
         <result column="sex" jdbcType="CHAR" property="sex"/>
@@ -26,17 +26,17 @@
         select eid, employee.name, sex, idcard_number, birthday, politics_status, education_status, ismarried, join_time, salary, department.name as department, worktype.name as worktype, employee.notes
         from employee,department,worktype
         where employee.work_type_no = worktype.no and employee.department_no = department.no
-        <if test="eid!=null and eid!=0">
-            and eid = #{eid}
+        <if test="arg0!=null and arg0!=0">
+            and eid = #{arg0}
         </if>
-        <if test="name!=null and name!=''">
-            and employee.name = #{name}
+        <if test="arg1!=null and arg1!=''">
+            and employee.name = #{arg1}
         </if>
-        <if test="departmentNo!=null and departmentNo!=0">
-            and employee.department_no = #{departmentNo}
+        <if test="arg2!=null and arg2!=0">
+            and employee.department_no = #{arg2}
         </if>
-        <if test="workTypeNo!=null and workTypeNo!=0">
-            and employee.work_type_no = #{workTypeNo}
+        <if test="arg3!=null and arg3!=0">
+            and employee.work_type_no = #{arg3}
         </if>
     </select>
     <select id="findLarge" resultType="java.lang.Integer">
